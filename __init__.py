@@ -63,13 +63,6 @@ class NewUserCreation(MycroftSkill):
         wf.writeframes(b"".join(frames2))
         wf.close()
         return filename
-        
-
-       
-        
-    def test_function(self):
-        test = 0
-        return test
 
 
 def create_skill():
