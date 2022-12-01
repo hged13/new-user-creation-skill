@@ -7,19 +7,13 @@ import pandas as pd
 class NewUserCreation(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
-        """Log the path of this Skills persistent namespace."""
-        self.log.info(self.file_system.path)
-       
+        
 
     @intent_file_handler('creation.user.new.intent')
     def handle_creation_user_new(self, message):
-        info = self.create_user()
-        f = open('log.csv', 'a')
-
-        # create the csv writer
-        writer = csv.writer(f)
-        writer.writerow(info)
-    
+        line = self.create_user()
+         with self.file_system.open('log.csv', "w") as my_file:
+            my_file.write(line)
         self.speak_dialog('creation.user.new')
     
     def create_user(self):
