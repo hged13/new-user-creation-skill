@@ -7,6 +7,7 @@ import pandas as pd
 class NewUserCreation(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
+        self.log.info(self.file_system.path)
         
 
     @intent_file_handler('creation.user.new.intent')
