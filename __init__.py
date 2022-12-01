@@ -7,15 +7,7 @@ import pandas as pd
 class NewUserCreation(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
-        f = open('log.csv', 'w')
-
-        # create the csv writer
-        writer = csv.writer(f)
-    
-        row = ["name","playlist","artist"]
-
-        # write a row to the csv file
-        writer.writerow(row)
+       
 
     @intent_file_handler('creation.user.new.intent')
     def handle_creation_user_new(self, message):
