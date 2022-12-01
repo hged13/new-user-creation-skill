@@ -10,7 +10,7 @@ class NewUserCreation(MycroftSkill):
         name = self.create_user()
         self.speak_dialog('creation.user.new')
     
-    def create_user():
+    def create_user(self):
         name = self.get_response("What is your name")
         return name
         
