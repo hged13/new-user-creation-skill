@@ -12,8 +12,10 @@ class NewUserCreation(MycroftSkill):
     @intent_file_handler('creation.user.new.intent')
     def handle_creation_user_new(self, message):
         line = self.create_user()
-         with self.file_system.open('log.csv', "w") as my_file:
+        with self.file_system.open('log.csv', "w") as my_file:
             my_file.write(line)
+         
+         
         self.speak_dialog('creation.user.new')
     
     def create_user(self):
