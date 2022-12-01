@@ -19,18 +19,7 @@ class NewUserCreation(MycroftSkill):
         artist = self.get_response("Who is your favorite artist?")
         self.speak_dialog("now we will take 5, 7 second samples of your voice")
         i = 0
-        recordings = []
-       
-
-        while i < 5:
-            file = self.start_recording(name, i)
-            recordings.append(file)
-            i += 1
-
-        user_info = [
-            name, playlist, artist, recordings]
-            
-        return user_info
+     
    
     def start_recording(self, name, num)
        filename = name + str(num) + ".wav"
