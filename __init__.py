@@ -7,6 +7,8 @@ import pandas as pd
 class NewUserCreation(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
+        """Log the path of this Skills persistent namespace."""
+        self.log.info(self.file_system.path)
        
 
     @intent_file_handler('creation.user.new.intent')
