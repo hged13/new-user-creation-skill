@@ -7,6 +7,7 @@ class NewUserCreation(MycroftSkill):
 
     @intent_file_handler('creation.user.new.intent')
     def handle_creation_user_new(self, message):
+        test = 0
         self.speak_dialog('creation.user.new')
 
 
