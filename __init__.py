@@ -7,8 +7,12 @@ class NewUserCreation(MycroftSkill):
 
     @intent_file_handler('creation.user.new.intent')
     def handle_creation_user_new(self, message):
-        self.test_function()
+        name = self.create_user()
         self.speak_dialog('creation.user.new')
+    
+    def create_user():
+        name = self.get_response("What is your name")
+        return name
         
     def test_function(self):
         test = 0
