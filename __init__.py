@@ -63,9 +63,7 @@ class NewUserCreation(MycroftSkill):
         wf.setnchannels(channels)
         wf.setsampwidth(p.get_sample_size(FORMAT))
         wf.setframerate(sample_rate)
-        wf.writeframes(b"".join(frames2))
-        path = self.file_system.path
-        wf.write(self.file_system.path.join(path, filename))
+        wf.writeframes(b"".join(frames2)
         wf.close()
         return filename
      
