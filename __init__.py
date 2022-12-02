@@ -30,7 +30,7 @@ class NewUserCreation(MycroftSkill):
         self.speak_dialog("now we will take 5, 7 second samples of your voice")
         i = 0
         rec = self.start_recording(name, 1)
-         return response
+        return response
 
      def start_recording(self,name, num):
          dir = self.file_system.path
