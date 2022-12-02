@@ -9,7 +9,6 @@ class NewUserCreation(MycroftSkill):
         MycroftSkill.__init__(self)
         self.log.info(self.file_system.path)
         
-
     @intent_file_handler('creation.user.new.intent')
     def handle_creation_user_new(self, message):
         line = self.create_user() 
@@ -51,21 +50,15 @@ class NewUserCreation(MycroftSkill):
         print("Recording...")
         for i in range(int(44100 / frames * record_seconds)):
             data = stream.read(frames)
-
             frames2.append(data)
         print("Finished recording.")
-        stream.stop_stream()
-        stream.close()
-        p.terminate()
-        wf = wave.open(filename, "wb")
-        wf.setnchannels(channels)
-        wf.setsampwidth(p.get_sample_size(FORMAT))
-        wf.setframerate(sample_rate)
-        wf.writeframes(b"".join(frames2)
-        wf.close()
-        return filename
-     
-
-def create_skill():
-    return NewUserCreation()
-
+         stream.stop_stream()
+         stream.close()
+         p.terminate()
+         wf = self.file_system.wave.open(filename, "wb")
+         wf.setnchannels(channels)
+         wf.setsampwidth(p.get_sample_size(FORMAT))
+         wf.setframerate(sample_rate)
+         wf.writeframes(b"".join(frames2))
+         wf.close()
+         return filename
