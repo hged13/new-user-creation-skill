@@ -33,12 +33,12 @@ class NewUserCreation(MycroftSkill):
         return response
 
      def start_recording(self,name, num):
-         dir = self.file_system.path
-         namelite = name + str(num) + ".wav"
-         filename = dir + "/" + namelite
-         frames = 1024
-         FORMAT = pyaudio.paInt16
-         channels = 1
+        dir = self.file_system.path
+        namelite = name + str(num) + ".wav"
+        filename = dir + "/" + namelite
+        frames = 1024
+        FORMAT = pyaudio.paInt16
+        channels = 1
         sample_rate = 22050
         record_seconds = 7
         p = pyaudio.PyAudio()
