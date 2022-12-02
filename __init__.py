@@ -29,7 +29,12 @@ class NewUserCreation(MycroftSkill):
         response.append(artist)
         self.speak_dialog("now we will take 5, 7 second samples of your voice")
         i = 0
-        rec = self.start_recording(name, 1)
+        recordings = []
+        while i < 5:
+            rec = self.start_recording(name, i)
+            recordings.append(rec)
+            i += 1
+            
         return response
 
     def start_recording(self,name, num):
@@ -49,11 +54,11 @@ class NewUserCreation(MycroftSkill):
                     output=True,
                     frames_per_buffer=frames)
         frames2 = []
-        print("Recording...")
+        self.speak_dialog("Recording...")
         for i in range(int(44100 / frames * record_seconds)):
             data = stream.read(frames)
             frames2.append(data)
-        print("Finished recording.")
+        self.speak_dialog("Finished recording.")
         stream.stop_stream()
         stream.close()
         p.terminate()
