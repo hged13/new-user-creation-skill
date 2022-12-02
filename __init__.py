@@ -57,7 +57,7 @@ class NewUserCreation(MycroftSkill):
         stream.stop_stream()
         stream.close()
         p.terminate()
-        wf = wave(filename, "wb")
+        wf = wave.open(filename, "wb")
         wf.setnchannels(channels)
         wf.setsampwidth(p.get_sample_size(FORMAT))
         wf.setframerate(sample_rate)
