@@ -1,4 +1,16 @@
- def handle_creation_user_new(self, message):
+from mycroft import MycroftSkill, intent_file_handler
+import csv 
+import pyaudio
+import wave
+import pandas as pd
+
+class NewUserCreation(MycroftSkill):
+    def __init__(self):
+        MycroftSkill.__init__(self)
+        self.log.info(self.file_system.path)
+        
+    @intent_file_handler('creation.user.new.intent')
+    def handle_creation_user_new(self, message):
         line = self.create_user() 
         with self.file_system.open('log.csv', "a") as my_file:
             writer = csv.writer(my_file)
