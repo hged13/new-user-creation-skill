@@ -32,10 +32,10 @@ class NewUserCreation(MycroftSkill):
         recordings = []
         with self.file_system.open('wav.csv', "a") as my_file2:
             writer2 = csv.writer(my_file2)
-        while i < 5:
-            rec = self.start_recording(name, i)
-            writer2.writerow([rec,name])
-            i += 1
+            while i < 5:
+                rec = self.start_recording(name, i)
+                writer2.writerow([rec,name])
+                i += 1
         return response
 
     def start_recording(self,name, num):
