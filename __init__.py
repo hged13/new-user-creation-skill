@@ -31,7 +31,7 @@ class NewUserCreation(MycroftSkill):
         i = 0
         recordings = []
         with self.file_system.open('wav.csv', "a") as my_file2:
-        writer2 = csv.writer(my_file2)
+            writer2 = csv.writer(my_file2)
         while i < 5:
             rec = self.start_recording(name, i)
             writer2.writerow([rec,name])
