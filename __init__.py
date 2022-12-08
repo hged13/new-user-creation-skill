@@ -30,13 +30,12 @@ class NewUserCreation(MycroftSkill):
         self.speak_dialog("now we will take 5, 7 second samples of your voice")
         i = 0
         recordings = []
+        with self.file_system.open('wav.csv', "a") as my_file2:
+        writer2 = csv.writer(my_file2)
         while i < 5:
             rec = self.start_recording(name, i)
-            recordings.append(rec)
+            writer2.writerow([rec,name])
             i += 1
-        with self.file_system.open('wav.csv', "a") as my_file2:
-            writer2 = csv.writer(my_file2)
-            writer2.writerow(recordings)   
         return response
 
     def start_recording(self,name, num):
