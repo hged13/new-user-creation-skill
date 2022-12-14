@@ -22,11 +22,13 @@ class NewUserCreation(MycroftSkill):
     def create_user(self):
         response = []
         name = self.get_response("What is your name")
-        playlist = self.get_response("what is your go-to playlist")
+        playlist = self.get_response("What is your first radio preference?")
         artist = self.get_response("Who is your favorite artist?")
+        artist2 = self.get_response("What is a third radio preference?")
         response.append(name)
         response.append(playlist)
         response.append(artist)
+        response.append(artist2)
         self.speak_dialog("now we will take 5, 7 second samples of your voice")
         i = 0
         recordings = []
